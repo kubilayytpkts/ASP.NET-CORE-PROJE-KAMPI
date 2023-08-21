@@ -7,7 +7,6 @@
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
     <ProjectReference Include="..\Entity\Entity.csproj" />
-    <ProjectReference Include="..\ProjeKampı\ProjeKampı.csproj" />
   </ItemGroup>
 
   <ItemGroup>
