@@ -12,5 +12,11 @@ namespace ProjeKampı.Controllers
            var value=blogManager.GetListWithCategory();
             return View(value);
         }
+        public IActionResult BlogDetails(int id)
+        {
+            var values = blogManager.GetBlogByID(id);
+            return View(values);
+        }
     }
+
 }
