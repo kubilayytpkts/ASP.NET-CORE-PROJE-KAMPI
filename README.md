@@ -1,5 +1,5 @@
 # ASP.NET-CORE-PROJE-KAMPI
-bu noktaya kadar ASP.NET Core,Entity framework,Razor,MVC pattern,Html,Solid ilkeleri,
+bu noktaya kadar ASP.NET Core,Entity framework,MS Sql,Razor,MVC pattern,Html,Solid ilkeleri,
 Dependency Injection kullanılmış(yararlanılmıştır). 
 ![Blog](https://github.com/kubilayytpkts/ASP.NET-CORE-PROJE-KAMPI/assets/119957098/f8a48961-a493-430f-9ef0-a955c7de5f6a)
 
