@@ -64,7 +64,7 @@
                         <a href="single.html" class="btn btn-primary read-m">Blog Listesi</a>
                     </div>
                     }
-                    @await Html.PartialAsync("~/Views/Comment/CommentListByBlog.cshtml")
+                    @await Component.InvokeAsync("CommentsListByBlog")
                     @await Html.PartialAsync("~/Views/Comment/PartialdAddComment.cshtml")
                 </div>
 
