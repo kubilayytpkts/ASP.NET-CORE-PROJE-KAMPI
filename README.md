@@ -4,3 +4,5 @@ bu noktaya kadar ASP.NET Core,Entity framework,Razor,MVC pattern,Html ve Solid i
 
 ![Blog](https://github.com/kubilayytpkts/ASP.NET-CORE-PROJE-KAMPI/assets/119957098/09aac2d3-e0b5-4581-aac2-1e33550cd272)
 
+![yorum](https://github.com/kubilayytpkts/ASP.NET-CORE-PROJE-KAMPI/assets/119957098/35ff9b41-3a1f-4dcd-bc4d-1c516b5a4a98)
+
