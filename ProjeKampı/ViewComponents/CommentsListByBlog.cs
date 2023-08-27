@@ -7,9 +7,10 @@ namespace ProjeKampı.ViewComponents
     public class CommentsListByBlog : ViewComponent
     {
         CommentManager commentManager = new CommentManager(new EfCommentRepository());
-        public IViewComponentResult Invoke()
+        //Blog Yorumlarını getir
+        public IViewComponentResult Invoke(int id)
         {
-            var values=commentManager.ListAllComment(5);
+            var values=commentManager.ListAllComment(id);
             return View(values);
         }
     }

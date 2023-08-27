@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="\lib\jquery\dist\jquery.js"></script>
+
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">KAYIT OL</h3>
+        <div class="inner-sec">
+            <div class="login p-5 bg-light mx-auto mw-100">
+                <form  method="post">
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">İsim Soyisim</label>
+                            <input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Email</label>
+                            <input type="email" class="form-control" id="validationDefault01" name="WriterMail" placeholder="" required="">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword1 mb-2">Şifre</label>
+                            <input type="password" class="form-control" id="password1" name="WriterPassword" placeholder="" required="">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword2 mb-2">Şifre onayla</label>
+                            <input type="password" class="form-control" id="password2" name="Passwordapproval" placeholder="" required="">
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary submit mb-4" id="btn11">Kayıt ol</button>
+                    <p>
+                        <a href="#" id="btn1">Site şartlarını kabul edıyorum</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+   <script>
+        $('#btn11').click(function () {
+            Swal.fire({
+                title: 'Aramıza Hoşgeldin.',
+                width: 600,
+                padding: '3em',
+                color: '#716add',
+                background: '#fff url(/images/trees.png)',
+                backdrop: `
+            rgba(0,0,123,0.4)
+                            url("/web/images/nyan-cat-nyan.gif")
+            left top
+            no-repeat
+          `
+            })
+        });
+    </script>
+</section>
+
+

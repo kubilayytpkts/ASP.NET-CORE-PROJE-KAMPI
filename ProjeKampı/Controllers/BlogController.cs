@@ -7,13 +7,16 @@ namespace ProjeKampı.Controllers
     public class BlogController : Controller
     {
         BlogManager blogManager = new BlogManager(new EfBlogRepository());
+        //Bloglar
         public IActionResult Index()
         {
            var value=blogManager.GetListWithCategory();
             return View(value);
         }
+        //seçilen blog id'sini alır ve iletir 
         public IActionResult BlogDetails(int id)
         {
+            ViewBag.i = id;
             var values = blogManager.GetBlogByID(id);
             return View(values);
         }
