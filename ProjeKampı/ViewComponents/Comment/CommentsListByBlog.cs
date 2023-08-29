@@ -2,7 +2,7 @@
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ProjeKampı.ViewComponents
+namespace ProjeKampı.ViewComponents.Comment
 {
     public class CommentsListByBlog : ViewComponent
     {
@@ -10,7 +10,7 @@ namespace ProjeKampı.ViewComponents
         //Blog Yorumlarını getir
         public IViewComponentResult Invoke(int id)
         {
-            var values=commentManager.ListAllComment(id);
+            var values = commentManager.ListAllComment(id);
             return View(values);
         }
     }

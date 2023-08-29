@@ -20,6 +20,8 @@ namespace Entity
         public bool BlogStatus { get; set; }
         public int CategoryID { get; set; }
         public Category Category { get; set; }
-        public List<Comment> Comment { get; set; }
+		public int WriterID { get; set; }
+		public Writer Writer { get; set; } 
+		public List<Comment> Comment { get; set; }
     }
 }

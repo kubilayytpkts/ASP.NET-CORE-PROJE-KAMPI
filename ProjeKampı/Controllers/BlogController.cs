@@ -14,9 +14,10 @@ namespace ProjeKampı.Controllers
             return View(value);
         }
         //seçilen blog id'sini alır ve iletir 
-        public IActionResult BlogDetails(int id)
+        public IActionResult BlogDetails(int id,int writerId)
         {
             ViewBag.i = id;
+            ViewBag.writerID = writerId;
             var values = blogManager.GetBlogByID(id);
             return View(values);
         }
