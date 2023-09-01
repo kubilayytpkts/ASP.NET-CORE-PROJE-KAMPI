@@ -9,7 +9,7 @@ Dependency Injection kullanılmış(yararlanılmıştır).
 
 ![yazar yazılar](https://github.com/kubilayytpkts/ASP.NET-CORE-PROJE-KAMPI/assets/119957098/4f763bf8-115f-4b14-9a25-387c21e95ed4)
 
-![mailbülten](https://github.com/kubilayytpkts/ASP.NET-CORE-PROJE-KAMPI/assets/119957098/6826ea56-c474-440e-9dc1-19e80dbe54a9)
+![mailbülten](https://github.com/kubilayytpkts/ASP.NET-CORE-PROJE-KAMPI/assets/119957098/cc331c86-d1a2-4af5-bac7-f94bbe16b313)
 
 ![Kayıt](https://github.com/kubilayytpkts/ASP.NET-CORE-PROJE-KAMPI/assets/119957098/ce12dd58-c88a-499f-8407-8a5cc1dd429e)
 
