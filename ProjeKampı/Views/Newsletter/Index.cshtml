@@ -1,0 +1,22 @@
+﻿@*Mail Bülteni*@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<div class="tech-btm">
+    <h4>Mail bültenine abone olun</h4>
+    <p>Teknoloji yazılım ve diğer bloglar... </p>
+    <form action="/NewsLetter/Index" method="post">
+        <input type="email" placeholder="Email" required="" name="Mail">
+        <input type="submit" id="btn11" value="Abone ol">
+    </form>
+    <script>
+        $('#btn11').click(function () {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'En güncel haberlerden ve teknolojilerden haberdar edileceksin <3 ',
+                    showConfirmButton: false,
+                    timer: 3000
+            })
+        });
+    </script>
+</div>

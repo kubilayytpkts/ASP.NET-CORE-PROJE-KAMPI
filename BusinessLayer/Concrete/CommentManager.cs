@@ -11,15 +11,15 @@ namespace BusinessLayer.Concrete
 {
     public class CommentManager : ICommentService
     {
-        ICommentDal _ıCommentDal;
-        public CommentManager(ICommentDal ıCommentDal)
+        ICommentDal ıCommentDal;
+        public CommentManager(ICommentDal _ıCommentDal)
         {
-            _ıCommentDal = ıCommentDal;
+            ıCommentDal = _ıCommentDal;
         }
 
         public void AddComment(Comment comment)
         {
-            throw new NotImplementedException();
+            ıCommentDal.Insert(comment);
         }
 
         public void DeleteComment(Comment comment)
@@ -34,7 +34,7 @@ namespace BusinessLayer.Concrete
 
         public List<Comment> ListAllComment(int id)
         {
-            return _ıCommentDal.GetListAll(x => x.BlogID == id);
+            return ıCommentDal.GetListAll(x => x.BlogID == id);
         }
 
         public void UpdateComment(Comment comment)
