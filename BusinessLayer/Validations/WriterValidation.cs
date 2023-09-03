@@ -4,10 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.ValidationRules
+namespace BusinessLayer.Validations
 {
     public class WriterValidation : AbstractValidator<Writer>
     {
@@ -15,13 +14,13 @@ namespace BusinessLayer.ValidationRules
         {
             RuleFor(x => x.WriterName).NotEmpty().WithMessage("İsim boş geçilemez !");
             RuleFor(x => x.WriterName).MinimumLength(1).WithMessage("Geçersiz isim");
-            RuleFor(x => x.WriterName).Must(x =>!x.Any(char.IsDigit)).WithMessage("İsim içerisinde rakam olamaz !");
+            RuleFor(x => x.WriterName).Must(x => !x.Any(char.IsDigit)).WithMessage("İsim içerisinde rakam olamaz !");
             RuleFor(x => x.WriterName).MaximumLength(50).WithMessage("İsim 50 karakterden fazla olamaz");
 
             RuleFor(x => x.WriterPassword).NotEmpty().WithMessage("Şifreniz kısmı boş olamaz !");
             RuleFor(x => x.WriterPassword).MinimumLength(8).WithMessage("Şifreniz 8 haneden küçük olamaz !");
             RuleFor(x => x.WriterPassword).MaximumLength(20).WithMessage("Şifreniz 15 haneden büyük olamaz !");
-            RuleFor(x => x.WriterPassword).Must(password=>password.Any(char.IsUpper)).WithMessage("Şifrenizde en az bir büyük harf içermeli !");
+            RuleFor(x => x.WriterPassword).Must(password => password.Any(char.IsUpper)).WithMessage("Şifrenizde en az bir büyük harf içermeli !");
             RuleFor(x => x.WriterPassword).Must(password => password.Any(char.IsDigit)).WithMessage("Şifrenizde en az bir rakam içermeli !");
             RuleFor(x => x.WriterPassword).Must(password => password.Any(char.IsPunctuation)).WithMessage("Şifreniz en az bir noktalama işareti içermeli !");
 

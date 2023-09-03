@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ValidationRules\**" />
+    <EmbeddedResource Remove="ValidationRules\**" />
+    <None Remove="ValidationRules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
     <ProjectReference Include="..\Entity\Entity.csproj" />
   </ItemGroup>

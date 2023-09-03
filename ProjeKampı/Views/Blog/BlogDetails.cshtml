@@ -66,7 +66,7 @@
                     }
                     @await Component.InvokeAsync("CommentsListByBlog",new {id=ViewBag.i})
 
-                    @await Html.PartialAsync("~/Views/Comment/PartialdAddComment.cshtml")
+                    @await Html.PartialAsync("~/Views/Comment/PartialdAddComment.cshtml",new Entity.Concrete.Comment())
                 </div>
 
                 <!--//left-->
