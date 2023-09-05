@@ -76,11 +76,11 @@
                         <div class="tech-btm">
                             <img src="~/web/images/banner1.jpg" class="img-fluid" alt="">
                         </div>  
-
+                        @*NEWSLETTER*@
                         @await Html.PartialAsync("~/Views/Newsletter/Index.cshtml")
-
+                        @*CATEGORY*@
                         @await Component.InvokeAsync("CategoryList")
-
+                        @*WRITERLASTBLOG*@
                         @await Component.InvokeAsync("WriterLastBlog",new {id=ViewBag.writerID})
 
                         <div class="single-gd my-5 tech-btm">
