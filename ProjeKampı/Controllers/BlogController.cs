@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ProjeKampı.Controllers
@@ -8,6 +9,7 @@ namespace ProjeKampı.Controllers
     {
         BlogManager blogManager = new BlogManager(new EfBlogRepository());
         //Bloglar
+        [AllowAnonymous]
         public IActionResult Index()
         {
            var value=blogManager.GetListWithCategory();

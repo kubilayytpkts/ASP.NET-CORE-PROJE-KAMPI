@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
                 <h3>Hakkımızda</h3>
-                <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. lacinia eget consectetur sed, convallis at tellus..</p>
+                <p style="">Sitemizin "Hakkımızda" bölümüne hoş geldiniz! Ben Kubilay, bu blog web sitesini geliştirmek ve öğrenmek amacıyla tasarlıyorum..</p>
                 <div class="read">
-                    <a href="single.html" class="btn btn-primary read-m">Devamı..</a>
+                    <a href="/Abouts/Media" class="btn btn-primary read-m">Devamı..</a>
                 </div>
             </div>
             <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
@@ -72,18 +72,11 @@
                 </div>
             </div>
             <!-- subscribe -->
-            <div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
-                <h2>Signup to our newsletter</h2>
-                <div class="subscribe-main text-left">
-                    <div class="subscribe-form">
-                        <form action="#" method="post" class="subscribe_form">
-                            <input class="form-control" type="email" placeholder="Enter your email..." required="">
-                            <button type="submit" class="btn btn-primary submit">Submit</button>
-                        </form>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <p>We respect your privacy.No spam ever!</p>
-                </div>
+            <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+               <h3>Mail Bültenine abone ol</h3>
+                @await Html.PartialAsync("~/Views/Newsletter/Index.cshtml")
+            </div>
+            <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
                 <!-- //subscribe -->
             </div>
         </div>
