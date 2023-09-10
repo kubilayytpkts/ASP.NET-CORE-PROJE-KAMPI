@@ -69,6 +69,8 @@ namespace ProjeKampı
             app.UseRouting();
             app.UseAuthorization();
             app.UseSession();
+            app.UseAuthentication();
+
 
             app.UseEndpoints(endpoints =>
             {

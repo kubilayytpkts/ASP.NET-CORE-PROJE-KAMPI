@@ -1,9 +1,14 @@
 ﻿using DataAccessLayer.Concrete;
 using Entity.Concrete;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NUnit.Framework;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace ProjeKampı.Controllers
 {
@@ -17,21 +22,26 @@ namespace ProjeKampı.Controllers
             return View();
         }
 
-        [AllowAnonymous]
+
         [HttpPost]
-        public IActionResult Index(Writer writer)
+        [AllowAnonymous]
+        public async Task<IActionResult> Index(Writer writer)
         {
-            Context context= new Context();
-            var datavalue = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
-            if(datavalue != null)
+            Context context = new Context();
+            var userData = context.Writers.FirstOrDefault(x => x.WriterPassword == writer.WriterPassword && x.WriterMail == writer.WriterMail);
+            if (userData != null)
             {
-                HttpContext.Session.SetString("username", writer.WriterMail);
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, writer.WriterMail)
+                };
+                var userIdentity = new ClaimsIdentity(claims, "a");
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                await HttpContext.SignInAsync(principal);
                 return RedirectToAction("Index", "Blog");
             }
             else
-            {
                 return View();
-            }
         }
     }
 }

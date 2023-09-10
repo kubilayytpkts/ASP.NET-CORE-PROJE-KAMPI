@@ -18,5 +18,18 @@ namespace ProjeKampı.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
+        public IActionResult Test()
+        {
+            return View();
+        }
+        public PartialViewResult NavbarPartialView()
+        {
+            return PartialView();
+        }
+        public PartialViewResult FooterPartialView()
+        {
+            return PartialView();
+        }
     }
 }

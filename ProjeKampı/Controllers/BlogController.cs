@@ -9,14 +9,13 @@ namespace ProjeKampı.Controllers
     {
         BlogManager blogManager = new BlogManager(new EfBlogRepository());
         //Bloglar
-        [AllowAnonymous]
         public IActionResult Index()
         {
            var value=blogManager.GetListWithCategory();
             return View(value);
         }
         //seçilen blog id'sini alır ve iletir 
-        public IActionResult BlogDetails(int id,int writerId)
+        public IActionResult BlogDetails(int id,int? writerId)
         {
             ViewBag.i = id;
             ViewBag.writerID = writerId;
