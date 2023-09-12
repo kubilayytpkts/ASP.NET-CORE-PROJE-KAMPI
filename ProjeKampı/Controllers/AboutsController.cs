@@ -9,7 +9,7 @@ namespace ProjeKampı.Controllers
         AboutManager aboutManager = new AboutManager(new EfAboutRepository());
         public IActionResult Media()
         {
-           var value = aboutManager.ListAboutAll();
+           var value = aboutManager.ListAll();
             return View(value);
         }
         public PartialViewResult SocialMedia()

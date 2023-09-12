@@ -21,7 +21,7 @@ namespace ProjeKampı.Controllers
         {
             contact.ContactStatus = true;
             contact.ContactDate= System.DateTime.Parse(DateTime.Now.ToShortDateString());
-            contactManager.ContactAdd(contact);
+            contactManager.Add(contact);
 			return View();
         }
     }

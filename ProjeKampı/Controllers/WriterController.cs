@@ -18,6 +18,7 @@ namespace ProjeKampı.Controllers
         {
             return View();
         }
+
         [AllowAnonymous]
         public IActionResult Test()
         {

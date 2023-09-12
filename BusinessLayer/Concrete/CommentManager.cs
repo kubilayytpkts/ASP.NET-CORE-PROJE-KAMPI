@@ -17,12 +17,13 @@ namespace BusinessLayer.Concrete
             ıCommentDal = _ıCommentDal;
         }
 
-        public void AddComment(Comment comment)
+        public void Add(Comment comment)
         {
             ıCommentDal.Insert(comment);
         }
 
-        public void DeleteComment(Comment comment)
+
+        public void Delete(Comment t)
         {
             throw new NotImplementedException();
         }
@@ -32,14 +33,20 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Comment> ListAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Comment> ListAllComment(int id)
         {
             return ıCommentDal.GetListAll(x => x.BlogID == id);
         }
 
-        public void UpdateComment(Comment comment)
+        public void Update(Comment t)
         {
             throw new NotImplementedException();
         }
+
     }
 }

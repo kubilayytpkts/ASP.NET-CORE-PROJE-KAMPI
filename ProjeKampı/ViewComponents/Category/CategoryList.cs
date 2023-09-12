@@ -10,7 +10,7 @@ namespace ProjeKampı.ViewComponents
         CategoryManager manager = new CategoryManager(new EfCategoryRepository());
         public IViewComponentResult Invoke()
         {
-           var values = manager.ListAllCategory();
+           var values = manager.ListAll();
             return View(values);
         }
     }

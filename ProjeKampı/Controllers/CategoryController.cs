@@ -12,7 +12,7 @@ namespace ProjeKampı.Controllers
 
         public IActionResult Index()
         {
-            var values = categoryManager.ListAllCategory();
+            var values = categoryManager.ListAll();
 
             return View(values);
         }

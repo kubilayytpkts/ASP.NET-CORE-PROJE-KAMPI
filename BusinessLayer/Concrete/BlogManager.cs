@@ -4,6 +4,7 @@ using Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,16 +17,13 @@ namespace BusinessLayer.Concrete
         {
             _blogDal = blogDal;
         }
-
-        //blog ekleme
-        public void AddBlog(Blog blog)
+        //ekleme
+        public void Add(Blog blog)
         {
             _blogDal.Insert(blog);
-
         }
-
-        //blog silme
-        public void DeleteBlog(Blog blog)
+        //silme
+        public void Delete(Blog blog)
         {
             _blogDal.Delete(blog);
         }
@@ -60,14 +58,14 @@ namespace BusinessLayer.Concrete
            return _blogDal.GetListWithCategory();
         }
 
-        //butun blogları getırme 
-        public List<Blog> ListAllBlog()
+        //bütün blogları getırme 
+        public List<Blog> ListAll()
         {
             return _blogDal.GetListAll();
         }
 
-        // blog update 
-        public void UpdateBlog(Blog blog)
+        //blog güncelleme
+        public void Update(Blog blog)
         {
             _blogDal.Update(blog);
         }

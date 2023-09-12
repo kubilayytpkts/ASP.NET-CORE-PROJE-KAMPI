@@ -22,6 +22,13 @@ namespace ProjeKampı.Controllers
             var values = blogManager.GetBlogByID(id);
             return View(values);
         }
+
+        [AllowAnonymous]
+        public IActionResult GetBlogListByWriter()
+        {
+            var value=blogManager.GetBlogByWriter(1);
+            return View(value);
+        }
     }
 
 }

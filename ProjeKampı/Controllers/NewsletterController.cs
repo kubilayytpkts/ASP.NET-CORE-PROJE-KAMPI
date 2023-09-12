@@ -21,7 +21,7 @@ namespace ProjeKampı.Controllers
         public IActionResult Index(NewsLetter newsletter)
         {
             newsletter.active = true;
-            manager.add(newsletter);
+            manager.Add(newsletter);
             return NoContent();
         }
     }

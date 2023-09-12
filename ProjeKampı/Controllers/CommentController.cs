@@ -17,6 +17,7 @@ namespace ProjeKampı.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public PartialViewResult PartialdAddComment()
         {
@@ -26,11 +27,10 @@ namespace ProjeKampı.Controllers
         [HttpPost]
         public IActionResult PartialdAddComment(Comment comment)
         {
-
             comment.CommentStatus = true;
             comment.CommentDate = System.DateTime.Parse(DateTime.Now.ToShortDateString());
             comment.BlogID = 1;
-            commentManager.AddComment(comment);
+            commentManager.Add(comment);
 
             return NoContent();
         }
