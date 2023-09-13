@@ -1,0 +1,34 @@
+﻿@using Entity
+@model List<Blog>
+
+@{
+    ViewData["Title"] = "Deneme";
+    Layout = "~/Views/Shared/Writer_Layout.cshtml";
+}
+
+<h1>Yazarın Blogları</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Blog Başlığı</th>
+        <th>Oluşturma Tarihi</th>
+        <th>Kategori</th>
+        <th>Durum</th>
+        
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.BlogID</td>
+            <td>@item.BlogTitle</td>
+            <td>@item.BlogCreateDate</td>
+            <td>@item.CategoryID</td>
+            <td>@item.BlogStatus</td>
+            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-warning">Düzenle</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Blog/BlogAdd/" class="btn btn-primary">Yeni Blog oluştur</a>
+

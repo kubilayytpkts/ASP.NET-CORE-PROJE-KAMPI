@@ -1,0 +1,26 @@
+﻿@model Entity.Blog
+
+@{
+    ViewData["Title"] = "BlogAdd";
+    Layout = "~/Views/Shared/Writer_Layout.cshtml";
+}
+
+@using (Html.BeginForm("BlogAdd","Blog",FormMethod.Post))
+{
+  @Html.Label("Blog Başlığı")
+  @Html.TextBoxFor(x=>x.BlogTitle,new {@class="form-control",})
+  @Html.ValidationMessageFor(x=>x.BlogTitle)
+
+  @Html.Label("Blog resim")
+  @Html.TextBoxFor(x=>x.BlogImage,new {@class="form-control"})
+
+  @Html.Label("Kategori")
+  @Html.TextBoxFor(x=>x.CategoryID,new {@class="form-control"})
+  
+  @Html.Label("Blog İçeriği");
+  @Html.TextAreaFor(x=>x.BlogContent,15,3,new {@class="form-control"})
+  <br />
+  <a type="button" class="btn btn-danger">Ekle</a>
+}
+
+
