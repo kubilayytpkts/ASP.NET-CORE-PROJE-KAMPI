@@ -5,7 +5,10 @@ using Entity;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjeKampı.Controllers
 {
@@ -15,11 +18,11 @@ namespace ProjeKampı.Controllers
         //Bloglar
         public IActionResult Index()
         {
-           var value=blogManager.GetListWithCategory();
+            var value = blogManager.GetListWithCategory();
             return View(value);
         }
         //seçilen blog id'sini alır ve iletir 
-        public IActionResult BlogDetails(int id,int? writerId)
+        public IActionResult BlogDetails(int id, int? writerId)
         {
             ViewBag.i = id;
             ViewBag.writerID = writerId;
@@ -31,14 +34,26 @@ namespace ProjeKampı.Controllers
         [AllowAnonymous]
         public IActionResult GetBlogWriter()
         {
-           var value=blogManager.GetBlogByWriter(18);
-           return View(value);
+            var value = blogManager.GetCategoryByWriter(18);
+            return View(value);
         }
 
         [AllowAnonymous]
         [HttpGet]
         public IActionResult BlogAdd()
         {
+            CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
+
+            
+            List<SelectListItem> categoryValues = (from x in categoryManager.ListAll()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryID.ToString()
+                                                   }).ToList();
+
+
+            ViewBag.Categorys = categoryValues;
             return View();
         }
 
@@ -48,9 +63,9 @@ namespace ProjeKampı.Controllers
         {
             BlogValidation Blogvalidation = new BlogValidation();
             ValidationResult result = Blogvalidation.Validate(blog);
-            if(result.IsValid)
+            if (result.IsValid)
             {
-                blog.WriterID = 14;
+                blog.WriterID = 18;
                 blog.BlogStatus = true;
                 blog.BlogCreateDate = System.DateTime.Parse(DateTime.Now.ToShortDateString());
                 blogManager.Add(blog);

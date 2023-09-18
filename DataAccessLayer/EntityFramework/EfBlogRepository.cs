@@ -13,6 +13,14 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfBlogRepository : GenericRepository<Blog>, IBlogDal
     {
+        public List<Blog> GetListByWriter(int id)
+        {
+            using (var value = new Context())
+            {
+                return value.Blogs.Include(x => x.Category).Where(x=>x.WriterID==id).ToList();
+            }
+        }
+
         public List<Blog> GetListWithCategory()
         {
             using(var value=new Context())
@@ -20,5 +28,6 @@ namespace DataAccessLayer.EntityFramework
                return value.Blogs.Include(x=>x.Category).ToList();
             }
         }
+
     }
 }

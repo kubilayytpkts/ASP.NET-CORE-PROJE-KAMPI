@@ -19,10 +19,10 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.BlogID</td>
+            <th>@item.BlogID</th>
             <td>@item.BlogTitle</td>
             <td>@item.BlogCreateDate</td>
-            <td>@item.CategoryID</td>
+            <td>@item.Category.CategoryName</td>
             <td>@item.BlogStatus</td>
             <td><a href="#" class="btn btn-danger">Sil</a></td>
             <td><a href="#" class="btn btn-warning">Düzenle</a></td>

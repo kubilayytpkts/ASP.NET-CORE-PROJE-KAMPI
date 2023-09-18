@@ -1,26 +1,32 @@
-﻿@model Entity.Blog
+﻿@using Entity
+@model Entity.Blog
+
 
 @{
     ViewData["Title"] = "BlogAdd";
     Layout = "~/Views/Shared/Writer_Layout.cshtml";
 }
-
-@using (Html.BeginForm("BlogAdd","Blog",FormMethod.Post))
-{
-  @Html.Label("Blog Başlığı")
-  @Html.TextBoxFor(x=>x.BlogTitle,new {@class="form-control",})
-  @Html.ValidationMessageFor(x=>x.BlogTitle)
-
-  @Html.Label("Blog resim")
-  @Html.TextBoxFor(x=>x.BlogImage,new {@class="form-control"})
-
-  @Html.Label("Kategori")
-  @Html.TextBoxFor(x=>x.CategoryID,new {@class="form-control"})
-  
-  @Html.Label("Blog İçeriği");
-  @Html.TextAreaFor(x=>x.BlogContent,15,3,new {@class="form-control"})
-  <br />
-  <a type="button" class="btn btn-danger">Ekle</a>
-}
+<div class="comment-bottom">
+    @using (Html.BeginForm("BlogAdd", "Blog", FormMethod.Post))
+    {
+        @Html.Label("~Blog Başlığı~")
+        @Html.TextBoxFor(x=>x.BlogTitle,new {@class="form-control",})
+        @Html.ValidationMessageFor(x=>x.BlogTitle,null,new {style="color:red"})
+        <br />
+        @Html.Label("~Blog resim~")
+        @Html.TextBoxFor(x=>x.BlogImage,new {@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.BlogImage,null,new {style="color:red"})
+        <br />
+        @Html.Label("~Kategori~")
+        @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.Categorys,new {@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.Category,null,new { style="color:red;" })
+        <br />
+        @Html.Label("~Blog İçeriği~")
+        @Html.TextAreaFor(x=>x.BlogContent,15,3,new {@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.BlogContent,null,new{style="color:red"})
+        <br />
+        <button type="submit" class="btn btn-primary contact_grids_info">Gönder</button>
+        <div />
+    }
 
 
