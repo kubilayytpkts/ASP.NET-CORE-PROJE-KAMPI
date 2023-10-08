@@ -4,17 +4,21 @@ using DataAccessLayer.EntityFramework;
 using Entity;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
 
 namespace ProjeKampı.Controllers
 {
+    [AllowAnonymous]
     public class BlogController : Controller
     {
         BlogManager blogManager = new BlogManager(new EfBlogRepository());
+        CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         //Bloglar
         public IActionResult Index()
         {
@@ -42,9 +46,6 @@ namespace ProjeKampı.Controllers
         [HttpGet]
         public IActionResult BlogAdd()
         {
-            CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
-
-            
             List<SelectListItem> categoryValues = (from x in categoryManager.ListAll()
                                                    select new SelectListItem
                                                    {
@@ -80,5 +81,40 @@ namespace ProjeKampı.Controllers
             }
             return View();
         }
+
+        public IActionResult BlogDelete(int id)
+        {
+            var value = blogManager.GetById(id);
+            blogManager.Delete(value);
+            return RedirectToAction("GetBlogWriter");
+        }
+
+        [HttpGet]
+        public IActionResult BlogUpdate(int id)
+        {
+            List<SelectListItem> categoryValues = (from x in categoryManager.ListAll()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryID.ToString()
+                                                   }).ToList();
+
+            var returnvalue = blogManager.GetById(id);
+            ViewBag.Categorys = categoryValues;
+
+            return View(returnvalue);
+        }
+
+        [HttpPost]
+        public IActionResult BlogUpdate(Blog blog)
+        {
+            var createTimeValue = blogManager.GetById(blog.BlogID);
+            blog.WriterID = createTimeValue.WriterID;
+            blog.BlogCreateDate = createTimeValue.BlogCreateDate;
+            blog.BlogStatus = true;
+            blogManager.Update(blog);
+            return RedirectToAction("GetBlogWriter");
+        }
+
     }
 }

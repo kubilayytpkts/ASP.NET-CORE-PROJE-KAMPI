@@ -1,0 +1,30 @@
+﻿@model Entity.Blog
+@{
+    ViewData["Title"] = "BlogUpdate";
+    Layout = "~/Views/Shared/Writer_Layout.cshtml";
+}
+
+@using (Html.BeginForm("BlogUpdate", "Blog", FormMethod.Post))
+{
+    <div>
+    @Html.Label("Blog ID")
+    @Html.TextBoxFor(x => x.BlogID,new{@class="form-control"})
+    <br />
+    @Html.Label("Blog Başlığı")
+    @Html.TextBoxFor(x=>x.BlogTitle,new {@class="form-control"})
+    <br />
+    @Html.Label("Kategori")
+        @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.Categorys,new {@class="form-control"})
+    <br />
+    @Html.Label("Resim")
+    @Html.TextBoxFor(x=>x.BlogImage,new {@class="form-control"})
+    <br />
+    @Html.Label("Yazı")
+    @Html.TextAreaFor(x=>x.BlogContent,13,5,new {@class="form-control"})
+    <br />
+    <button type="submit" class="btn btn-primary contact_grids_info">Gönder</button>
+    </div>
+}
+
+
+

@@ -24,11 +24,14 @@
             <td>@item.BlogCreateDate</td>
             <td>@item.Category.CategoryName</td>
             <td>@item.BlogStatus</td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-warning">Düzenle</a></td>
+            <td>
+                <a href="/Blog/BlogDelete/@item.BlogID" class="btn btn-primary">Sil</a>
+            </td>
+            <td><a href="/Blog/BlogUpdate?id=@item.BlogID" class="btn btn-warning">Düzenle</a></td>
         </tr>
     }
 </table>
 <br />
 <a href="/Blog/BlogAdd/" class="btn btn-primary">Yeni Blog oluştur</a>
+<a href="/Blog/BlogDelete/13" class="btn btn-primary">Sil</a>
 

@@ -40,7 +40,7 @@ namespace DataAccessLayer.Repositories
         public void Update(T t)
         {
             using Context context = new();
-            context.Update(context);
+            context.Update(t);
             context.SaveChanges();
         }
         public List<T> GetListAll(Expression<Func<T, bool>> filter)
