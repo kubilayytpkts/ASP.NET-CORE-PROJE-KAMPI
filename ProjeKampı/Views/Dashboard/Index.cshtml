@@ -1,3 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Writer_Layout.cshtml";
+}
+
+@* gösterge paneli *@
+
 <!DOCTYPE html>
 <html lang="en">
 <body>
@@ -6,11 +13,10 @@
         <div class="col-12">
             <span class="d-flex align-items-center purchase-popup">
                 <h5>
-                    instagram/SMTcoder
+                    -Kubilay Topaktaş-
                     Software Developer 👨‍💻
-                    Yazılım İçerik üreticisi 🛸
                 </h5>
-                <a href="https://www.instagram.com/smtcoder/" target="_blank" class="btn download-button purchase-button ml-auto">Takip Et</a>
+                <a href="https://www.instagram.com/kubi_tpktss" target="_blank" class="btn download-button purchase-button ml-auto">Takip Et</a>
                 <i class="mdi mdi-close" id="bannerClose"></i>
             </span>
         </div>
@@ -38,7 +44,7 @@
                         Toplam Blog Sayısı <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                     </h4>
                     <h2 class="mb-5">0</h2>
-                    <h6 class="card-text"> SMTcoder </h6>
+                    <h6 class="card-text"> </h6>
                 </div>
             </div>
         </div>
@@ -50,7 +56,7 @@
                         Sizin Blog Sayınız  <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                     </h4>
                     <h2 class="mb-5">0</h2>
-                    <h6 class="card-text">SMTcoder</h6>
+                    <h6 class="card-text"></h6>
                 </div>
             </div>
         </div>
@@ -62,15 +68,12 @@
                         Toplam Kategori Sayısı <i class="mdi mdi-diamond mdi-24px float-right"></i>
                     </h4>
                     <h2 class="mb-5">0</h2>
-                    <h6 class="card-text">SMTcoder</h6>
+                    <h6 class="card-text"></h6>
                 </div>
             </div>
         </div>
     </div>
-
     @await Component.InvokeAsync("BlogListDashboard")
-
-
     <div class="row">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
@@ -152,7 +155,7 @@
                                     <td> Apr 12, 2015 </td>
                                     <td>
                                         <div class="progress">
-                                            <div class="progress-bar bg-gradient-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="xprogress-bar bg-gradient-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </td>
                                 </tr>
