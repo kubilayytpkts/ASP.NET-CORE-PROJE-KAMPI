@@ -4,14 +4,16 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20231028155205_mig-blog-score")]
+    partial class migblogscore
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,27 +107,6 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("AboutId");
 
                     b.ToTable("Abaouts");
-                });
-
-            modelBuilder.Entity("Entity.Concrete.BlogRayting", b =>
-                {
-                    b.Property<int>("BlogRaytingID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("BlogID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BlogRaytingCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BlogTotalScore")
-                        .HasColumnType("int");
-
-                    b.HasKey("BlogRaytingID");
-
-                    b.ToTable("BlogRaytings");
                 });
 
             modelBuilder.Entity("Entity.Concrete.Comment", b =>
