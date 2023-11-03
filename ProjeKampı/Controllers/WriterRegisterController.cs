@@ -28,7 +28,7 @@ namespace ProjeKampı.Controllers
                 writer.WriterImage = "Deneme";
                 writer.WriterImage = "Deneme";
                 writer.WriterAbout = "Deneme";
-                manager.AddWriter(writer);
+                manager.Add(writer);
                // return RedirectToAction("Index","WriterRegister");
             }
 

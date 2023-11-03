@@ -9,13 +9,13 @@
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 <section class="main-content-w3layouts-agileits">
-        <div class="container">
-            <h3 class="tittle">Bloglar</h3>
-            <div class="inner-sec">
-                <!--left-->
-                <div class="left-blog-info-w3layouts-agileits text-left">
-                    <div class="row">
-                        @foreach (var item in Model)
+    <div class="container">
+        <h3 class="tittle">Bloglar</h3>
+        <div class="inner-sec">
+            <!--left-->
+            <div class="left-blog-info-w3layouts-agileits text-left">
+                <div class="row">
+                    @foreach (var item in Model)
                     {
                         <div class="col-lg-4 card">
                             <a href="/Blog/BlogDetails?id=@item.BlogID&writerId=@item.WriterID">
@@ -42,19 +42,18 @@
                                 <h5 class="card-title">
                                     <a href="/Blog/BlogDetails?id=@item.BlogID&writerId=@item.WriterID">@item.BlogTitle</a>
                                 </h5>
-                                <p class="card-text mb-3">@item.BlogContent.Substring(0,item.BlogContent.Substring(0,130).LastIndexOf(" "))...</p>
+                                <p class="card-text mb-3">@item.BlogContent.Substring(0,item.BlogContent.Substring(0,150).LastIndexOf(" "))...</p>
                                 <a href="/Blog/BlogDetails?id=@item.BlogID&writerId=@item.WriterID" class="btn btn-primary read-m">
                                     Devamını oku..
-                                    
                                 </a>
                             </div>
                         </div>
                     }
-                    </div>
-                    <!--//left-->
                 </div>
+                <!--//left-->
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
