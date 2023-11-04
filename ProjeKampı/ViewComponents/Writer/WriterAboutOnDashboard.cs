@@ -11,7 +11,7 @@ namespace ProjeKampı.ViewComponents.Writer
         public IViewComponentResult Invoke()
         
         {
-            var values = WriterManager.GetWriterById(1);
+            var values = WriterManager.GetWriterById(18);
             return View(values);
         }
 

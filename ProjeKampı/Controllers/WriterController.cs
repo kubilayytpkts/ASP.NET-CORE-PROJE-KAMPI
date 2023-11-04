@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ProjeKampı.Controllers
 {
     [Authorize]
+    [AllowAnonymous]
     public class WriterController : Controller
     {
+        WriterManager writerManager = new WriterManager(new EfWriterRepository());
         public IActionResult Index()
         {
             return View();
@@ -31,6 +35,11 @@ namespace ProjeKampı.Controllers
         public PartialViewResult FooterPartialView()
         {
             return PartialView();
+        }
+        public IActionResult EditProfile()
+        {
+            var value=writerManager.GetById(18);
+            return View(value);
         }
     }
 }
