@@ -48,6 +48,5 @@ namespace DataAccessLayer.Repositories
             using Context context = new();
             return context.Set<T>().Where(filter).ToList();  
         }
-
     }
 }

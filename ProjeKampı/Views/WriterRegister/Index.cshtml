@@ -45,21 +45,37 @@
         </div>
     </div>
    <script>
-        $('#btn11').click(function () {
-            Swal.fire({
-                title: 'Aramıza Hoşgeldin.',
-                width: 600,
-                padding: '3em',
-                color: '#716add',
-                background: '#fff url(/images/trees.png)',
-                backdrop: `
-            rgba(0,0,123,0.4)
-                            url("/web/images/nyan-cat-nyan.gif")
-            left top
-            no-repeat
-          `
-            })
-        });
+        success: function (result) {
+            if (result.success) {
+                // Güncelleme başarılı olduğunda hoşgeldin mesajını göster
+                Swal.fire({
+                    title: 'Aramıza Hoşgeldin.',
+                    width: 600,
+                    padding: '3em',
+                    color: '#716add',
+                    background: '#fff url(/images/trees.png)',
+                    backdrop: `rgba(0,0,123,0.4) url("/web/images/nyan-cat-nyan.gif") left top no-repeat`
+                });
+            } else {
+                // Güncelleme başarısız olduğunda bir hata mesajı gösterilebilir
+                if (result.validationError && result.validationError.length > 0) {
+                    // ModelState.IsValid false ise, validation hatası var demektir
+                    // Hata sayısı 0'dan büyükse hata mesajını göster
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Güncelleme sırasında bir hata oluştu! Lütfen formu kontrol edin.',
+                    });
+                } else {
+                    // Server tarafında başka bir hata olabilir
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Güncelleme sırasında bir hata oluştu!',
+                    });
+                }
+            }
+        },
     </script>
 </section>
 

@@ -3,11 +3,13 @@ using BusinessLayer.Validations;
 using DataAccessLayer.EntityFramework;
 using Entity.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace ProjeKampı.Controllers
 {
+    [AllowAnonymous]
     public class WriterRegisterController : Controller
     {
         WriterManager manager = new WriterManager(new EfWriterRepository());
@@ -25,8 +27,7 @@ namespace ProjeKampı.Controllers
             if(Result.IsValid)
             {
                 writer.WriterStatus = true;
-                writer.WriterImage = "Deneme";
-                writer.WriterImage = "Deneme";
+                writer.WriterImage = null;
                 writer.WriterAbout = "Deneme";
                 manager.Add(writer);
                // return RedirectToAction("Index","WriterRegister");
