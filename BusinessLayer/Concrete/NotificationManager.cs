@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete
 
         public List<Notification> ListAll()
         {
-            throw new NotImplementedException();
+           return notificationDal.GetListAll();
         }
 
         public void Update(Notification t)
