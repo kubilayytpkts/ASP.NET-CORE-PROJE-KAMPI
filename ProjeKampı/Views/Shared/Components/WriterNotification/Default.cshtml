@@ -2,8 +2,7 @@
 @model List<Notification>
 
 <li class="nav-item dropdown">
-    @foreach (var item in Model)
-    {   
+   
     <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
         <i class="mdi mdi-bell-outline"></i>
         <span class="count-symbol bg-danger"></span>
@@ -11,6 +10,8 @@
     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
         <h6 class="p-3 mb-0">Bildirimler</h6>
         <div class="dropdown-divider"></div>
+        @foreach (var item in Model)
+        {
         <a class="dropdown-item preview-item">
             <div class="preview-thumbnail">
                 <div class="@item.NotificationColor">
@@ -22,8 +23,8 @@
                 <p class="text-gray ellipsis mb-0"> @item.NotificationDetails </p>
             </div>
         </a>
+        }
         <div class="dropdown-divider"></div>
         <h6 class="p-3 mb-0 text-center">Bütün Bildirimler</h6>
     </div>
-    }
 </li>

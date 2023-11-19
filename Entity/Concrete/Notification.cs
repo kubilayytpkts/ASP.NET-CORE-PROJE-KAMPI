@@ -17,5 +17,9 @@ namespace Entity.Concrete
         public DateTime NotificationDate { get; set; }
         public bool NotificationStatus { get; set; }
         public string NotificationColor { get; set; }
+
+        public int GecenSure ;
+
+        public string DaysOrHours;
     }
 }

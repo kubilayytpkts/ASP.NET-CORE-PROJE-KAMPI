@@ -1,0 +1,35 @@
+﻿@using Entity.Concrete;
+@model List<Notification>;
+
+@{
+    ViewData["Title"] = "GetAllNotification";
+    Layout = "~/Views/Shared/Writer_Layout.cshtml";
+    
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th style="font-size:large; color:red;">#</th>
+        <th style="font-size:large; color:red;">Bildirim Başlığı</th>
+        <th style="font-size:large; color:red;">Bildirim Konusu</th>
+        <th style="font-size:large; color:red;">Aradan geçen zaman</th>
+    </tr>
+    @foreach (var item in Model)
+    {   
+    <tr>
+            <th>@item.NotificationID</th>
+            <th>@item.NotificationType</th>
+            <th>@item.NotificationDetails</th>
+            @if(item.DaysOrHours=="Hour")
+            {
+                <th>@item.GecenSure Saat</th>
+            }
+            else
+            {
+                <th>@item.GecenSure gün</th>
+            }
+
+   </tr>
+    }
+</table>
+
