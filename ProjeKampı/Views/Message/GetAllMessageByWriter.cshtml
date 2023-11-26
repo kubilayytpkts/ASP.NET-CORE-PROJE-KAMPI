@@ -1,0 +1,25 @@
+﻿@using Entity.Concrete
+@model List<Message>
+@{
+    ViewData["Title"] = "GetAllBlogByWriter";
+    Layout = "~/Views/Shared/Writer_Layout.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Mesaj Gönderen</th>
+        <th>Mesaj Konusu</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MessageID </td>
+            <td>@item.SenderUser.WriterName</td>
+            <td>@item.Subject</td>
+            <td><a href="/Message/GetMessageByWriterID/@item.MessageID" class="btn btn-warning">Mesaj Detayları</a></td>
+            <td><a href="/Message/GetMessageByWriterID/@item.MessageID" class="btn btn-primary">Mesajı Sil</a></td>
+       </tr>
+     }
+    </table>

@@ -17,6 +17,9 @@ namespace Entity.Concrete
         public string WriterMail { get; set; }
         public string WriterPassword { get; set; }
         public bool WriterStatus { get; set; }
-		public List<Blog> blogs{ get; set; }
-	}
+        public List<Blog> blogs { get; set; }
+        public ICollection<Message> WriterSender { get; set; }
+        public ICollection<Message> WriterReceiver { get; set; }
+
+    }
 }

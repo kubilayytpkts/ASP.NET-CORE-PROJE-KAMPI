@@ -1,0 +1,36 @@
+﻿@using Entity.Concrete
+@model List<Message>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Writer_Layout.cshtml";
+}
+
+@using (Html.BeginForm(FormMethod.Get))
+{
+    foreach (var item in Model)
+    {
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleInputName1">#</label>
+                @Html.TextBoxFor(x => item.MessageID, new { @class = "form-control",@disabled = "disabled" })
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName1">Gönderen</label>
+                @Html.TextBoxFor(x => item.SenderUser.WriterName, new { @class = "form-control",@disabled = "disabled",@background="white" })
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName1">Konu</label>
+                @Html.TextBoxFor(x => item.Subject, new { @class = "form-control",@disabled = "disabled" })
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName1">Detaylar</label>
+                @Html.TextAreaFor(x => item.MessageDetails,10,3, new { @class = "form-control",@disabled = "disabled" })
+            </div>
+            <div>
+                <a href="" class="btn btn-primary">Mesajı Sil</a>
+                <a href="" class="btn btn-warning">Geri Dön</a>
+            </div>
+        </div>
+    }
+}
