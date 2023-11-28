@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using FluentValidation.Results;
 using System;
+using DataAccessLayer.Concrete;
+using System.Linq;
 
 namespace ProjeKampı.Controllers
 {
@@ -44,7 +46,11 @@ namespace ProjeKampı.Controllers
         [HttpGet]
         public IActionResult EditProfile()
         {
-            var value = writerManager.GetById(18);
+            var context = new Context();
+            var userMail = User.Identity.Name;
+            var writerId = context.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterID).FirstOrDefault();
+
+            var value = writerManager.GetById(writerId);
             return View(value);
         }
 
@@ -57,7 +63,7 @@ namespace ProjeKampı.Controllers
             {
                 writer.WriterID = 18;
                 writerManager.Update(writer);
-                return RedirectToAction("Index","Dashboard");
+                return RedirectToAction("Index", "Dashboard");
             }
             else
             {

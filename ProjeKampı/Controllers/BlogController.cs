@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.Validations;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Entity;
 using FluentValidation.Results;
@@ -38,7 +39,11 @@ namespace ProjeKampı.Controllers
         [AllowAnonymous]
         public IActionResult GetBlogWriter()
         {
-            var value = blogManager.GetCategoryByWriter(18);
+            var context = new Context();
+            var userMail = User.Identity.Name;
+            var writerId = context.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterID).FirstOrDefault();
+
+            var value = blogManager.GetCategoryByWriter(writerId);
             return View(value);
         }
 
@@ -62,11 +67,15 @@ namespace ProjeKampı.Controllers
         [HttpPost]
         public IActionResult BlogAdd(Blog blog)
         {
+            var context = new Context();
+            var userMail = User.Identity.Name;
+            var writerId = context.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterID).FirstOrDefault();
+
             BlogValidation Blogvalidation = new BlogValidation();
             ValidationResult result = Blogvalidation.Validate(blog);
             if (result.IsValid)
             {
-                blog.WriterID = 18;
+                blog.WriterID = writerId;
                 blog.BlogStatus = true;
                 blog.BlogCreateDate = System.DateTime.Parse(DateTime.Now.ToShortDateString());
                 blogManager.Add(blog);

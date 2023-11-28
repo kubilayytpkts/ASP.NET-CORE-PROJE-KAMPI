@@ -38,10 +38,18 @@ namespace ProjeKampı.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "a");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(principal);
-                return RedirectToAction("Index", "Blog");
+                return RedirectToAction("Index", "Dashboard");
             }
             else
                 return View();
+        }
+        public int GetByUserID()
+        {
+            var context = new Context();
+            var userMail = User.Identity.Name;
+            var writerID = context.Writers.Where(x => x.WriterMail == userMail).
+                                       Select(y => y.WriterID).FirstOrDefault();
+            return writerID;
         }
     }
 }
