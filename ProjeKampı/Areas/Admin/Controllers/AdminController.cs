@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ProjeKampı.Controllers
+namespace ProjeKampı.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     [AllowAnonymous]
     public class AdminController : Controller
     {
