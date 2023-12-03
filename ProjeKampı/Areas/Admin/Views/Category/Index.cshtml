@@ -1,0 +1,37 @@
+﻿@using Entity
+@model List<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <td>Kategori Adı</td>
+        <td>Aktiflik Düzenleme</td>
+        <td>Düzenle</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.CategoryID</th>
+            <td>@item.CategoryName</td>
+            @if(item.CategoryStatus==true)
+            {
+             <td><button a href="#" class="btn btn-danger">Pasif Yap</button></td>
+            }
+            else
+            {
+            <td><button a href="#" class="btn btn-primary">Aktif Yap</button></td>
+            }
+            <td><button a href="#" class="btn btn-success">Düzenle</button></td>
+        </tr>
+    }
+    <br />
+</table>
+<td>
+    <a href="~/Admin/Category/AddCategory" class="btn btn-info">
+         <button type="button">Kategori Ekle</button>
+    </a>
+</td>
