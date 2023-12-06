@@ -10,13 +10,20 @@
 <br />
 @using (Html.BeginForm("AddCategory","Category",FormMethod.Post))
 {
-    @Html.Label("Kategori Adı");
-    @Html.TextBoxFor(x=>x.CategoryName,new {@class="form-control"})
-    @Html.ValidationMessageFor(x=>x.CategoryName)
+    <div>
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x=>x.CategoryName,new {@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.CategoryName,null,new {style = "color: red;"})
+    </div>
 
-    @Html.Label("Kategori Açıklaması");
-    @Html.TextBoxFor(x=>x.CategoryDescription,new {@class="form-control"})
-    @Html.ValidationMessageFor(x=>x.CategoryDescription)
-
-    <button type="button" class="btn btn-info">Ekle</button>
+    <div>
+        @Html.Label("Kategori Açıklaması")
+        @Html.TextBoxFor(x=>x.CategoryDescription,new {@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.CategoryDescription,null,new {style = "color: red;"})
+   </div>
+   <br />
+   <div>
+        <button type="submit" href="~/Category/AddCategory" class="btn btn-success">Ekle</button>
+   </div>
+    
 }

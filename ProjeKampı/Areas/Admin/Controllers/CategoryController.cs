@@ -14,6 +14,7 @@ namespace ProjeKampı.Areas.Admin.Controllers
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         public IActionResult Index()
+        
         {
             var value = categoryManager.ListAll();
             return View(value);
@@ -44,6 +45,22 @@ namespace ProjeKampı.Areas.Admin.Controllers
                 }
             }
             return View();
+        }
+        public IActionResult ActivatedCategory(int id)
+        {
+            var selectedCategory = categoryManager.GetById(id);
+            selectedCategory.CategoryStatus = true;
+            categoryManager.Update(selectedCategory);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult PassivatingCategory(int id)
+        {
+            var selectedCategory = categoryManager.GetById(id);
+            selectedCategory.CategoryStatus = false;
+            categoryManager.Update(selectedCategory);
+
+            return RedirectToAction("Index");
         }
     }
 }

@@ -5,6 +5,8 @@
     Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
 }
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <table class="table table-bordered">
     <tr>
         <th>#</th>
@@ -17,21 +19,48 @@
         <tr>
             <th>@item.CategoryID</th>
             <td>@item.CategoryName</td>
-            @if(item.CategoryStatus==true)
-            {
-             <td><button a href="#" class="btn btn-danger">Pasif Yap</button></td>
-            }
-            else
-            {
-            <td><button a href="#" class="btn btn-primary">Aktif Yap</button></td>
-            }
-            <td><button a href="#" class="btn btn-success">Düzenle</button></td>
+            <td>
+                @if (item.CategoryStatus == true)
+                {
+                    <button type="button" href="/Admin/Index1" class="btn btn-danger" onclick="confirmAction('/Admin/Category/PassivatingCategory/@item.CategoryID')">Pasif Yap</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-primary" onclick="confirmAction('/Admin/Category/ActivatedCategory/@item.CategoryID')">Aktif Yap</button>
+                }
+            </td>
+            <td><button type="button" class="btn btn-success">Düzenle</button></td>
         </tr>
     }
-    <br />
 </table>
+
 <td>
     <a href="~/Admin/Category/AddCategory" class="btn btn-info">
-         <button type="button">Kategori Ekle</button>
+        <button type="button" class="btn btn-success">Kategori Ekle</button>
     </a>
 </td>
+
+<script>
+    function confirmAction(url) {
+        Swal.fire({
+            title: "Emin misiniz?",
+            text: "Yapmış olduğunuz işlem Sistemi etkileyebilir.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Evet, Eminim!",
+            cancelButtonText: "Hayır"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Başarılı !",
+                    text: "İşlem başarıli bir şekiklde gerçekleşti.",
+                    icon: "success"
+                }).then(() => {
+                    window.location.href = url; // Onay alındıktan sonra belirtilen URL'ye yönlendir
+                });
+            }
+        });
+    }
+</script>
