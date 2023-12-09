@@ -1,10 +1,13 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.Validations;
 using DataAccessLayer.EntityFramework;
+using DocumentFormat.OpenXml.Office2010.ExcelAc;
 using Entity;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ProjeKampı.Areas.Admin.Models;
+using System.Collections.Generic;
 
 namespace ProjeKampı.Areas.Admin.Controllers
 {
@@ -62,5 +65,6 @@ namespace ProjeKampı.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+        
     }
 }
