@@ -34,7 +34,7 @@ namespace BusinessLayer.Concrete
 
         public List<Contact> ListAll()
         {
-            throw new NotImplementedException();
+            return ıContactDal.GetListAll();
         }
 
         public void Update(Contact t)
