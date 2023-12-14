@@ -18,7 +18,7 @@ public class ChartController : Controller
         list.Add(new CategoryClass
         {
             categoryname = "Teknoloji",
-            categorycount = 10
+            categorycount = 11
         });
         list.Add(new CategoryClass
         {
