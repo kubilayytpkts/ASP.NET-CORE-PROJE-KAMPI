@@ -29,3 +29,5 @@ Dependency Injection kullanılmış(yararlanılmıştır).
 
 ![APİ](https://github.com/kubilayytpkts/ASP.NET-CORE-PROJE-KAMPI/assets/119957098/cb0762d5-301a-46ed-9b9d-491a3af9dba4)
 
+![chart](https://github.com/kubilayytpkts/ASP.NET-CORE-PROJE-KAMPI/assets/119957098/dbb551a5-02e8-40eb-af2e-7deefff91226)
+
