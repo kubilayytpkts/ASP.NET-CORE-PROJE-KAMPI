@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public List<Writer> ListAll()
         {
-            throw new NotImplementedException();
+            return writerDal.GetListAll();
         }
 
         public void Update(Writer t)
